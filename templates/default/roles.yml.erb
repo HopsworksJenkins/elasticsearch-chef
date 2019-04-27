@@ -91,6 +91,12 @@ elastic_exporter_hopsworks:
         - create_index
         - manage
         - get
+    - index_patterns:
+      - "${attr.jwt.piid}__file_prov"
+      allowed_actions:
+        - read
+        - search
+        - get
   cluster_permissions:
     - cluster_composite_ops
     - cluster:monitor/state
@@ -112,6 +118,12 @@ elastic_exporter_hopsworks:
         - read
         - search
         - indices_monitor
+        - get
+    - index_patterns:
+      - "${attr.jwt.piid}__file_prov"
+      allowed_actions:
+        - read
+        - search
         - get
   cluster_permissions:
     - cluster_composite_ops_ro
