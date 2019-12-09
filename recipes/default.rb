@@ -301,7 +301,6 @@ elastic_start "start_install_elastic" do
     user node['elastic']['opendistro_security']['admin']['username']
     password node['elastic']['opendistro_security']['admin']['password']
   end
-  systemd true
   action :run
 end
 
