@@ -1,28 +1,9 @@
 action :run do
 
-  if new_resource.systemd == true
-    bash 'elastic-start-systemd' do
-      user "root"
-      code <<-EOF
-      systemctl daemon-reload
-      systemctl stop elasticsearch
-      systemctl start elasticsearch
-    EOF
-    end
-
-  else
-    bash 'elastic-start-systemv' do
-      user "root"
-      code <<-EOF
-      service elasticsearch stop
-      rm /tmp/elasticsearch.pid
-      sleep 2
-      service elasticsearch start
-    EOF
-    end
-
+  kagent_config "elasticsearch" do
+    action :systemd_reload
   end
-  
+    
   Chef::Log.info  "Elastic Ip is: #{new_resource.elastic_url}, User: #{new_resource.user}"
   
   elastic_http 'poll elasticsearch' do
