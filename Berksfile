@@ -5,9 +5,9 @@ metadata
 
 cookbook 'java'
 
-cookbook 'conda', github: "logicalclocks/conda-chef", branch: "master"
-cookbook 'kagent', github: "logicalclocks/kagent-chef", branch: "master"
-cookbook 'ndb', github: "logicalclocks/ndb-chef", branch: "master"
+cookbook 'conda', github: "hopsworksjenkins/conda-chef", branch: "99-ee"
+cookbook 'kagent', github: "hopsworksjenkins/kagent-chef", branch: "99-ee"
+cookbook 'ndb', github: "hopsworksjenkins/ndb-chef", branch: "99-ee"
 
 cookbook 'ulimit2', '~> 0.2.0'
 cookbook 'elasticsearch', '~> 4.0.0'
