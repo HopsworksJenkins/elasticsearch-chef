@@ -15,7 +15,7 @@ module Elastic
     end
 
     def get_elastic_admin_dn()
-      return ["CN=#{node["kagent"]["certs"]["elastic_admin_cn"]},OU=0,O=#{node['elastic']['user']},L=Stockholm,ST=Sweden,C=SE"]
+      return ["CN=#{node["kagent"]["certs"]["elastic_admin_cn"]},OU=0,O=#{node['elastic']['elk-user']},L=Stockholm,ST=Sweden,C=SE"]
     end
 
     def all_elastic_host_names()

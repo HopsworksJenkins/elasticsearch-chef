@@ -202,7 +202,7 @@ template "#{node['elastic']['opendistro_security']['tools_dir']}/run_securityAdm
   mode "700"
   variables({
      :hopsCAFile => "#{elk_crypto_dir}/#{x509_helper.get_hops_ca_bundle_name()}",
-     :elkUserCert => "#{elk_crypto_dir}/#{x509_helper.get_public_name(node['elastic']['elk-user'])}",
+     :elkUserCert => "#{elk_crypto_dir}/#{x509_helper.get_certificate_bundle_name(node['elastic']['elk-user'])}",
      :elkUserKey => "#{elk_crypto_dir}/#{x509_helper.get_private_key_pkcs8_name(node['elastic']['elk-user'])}"
   })
 end
