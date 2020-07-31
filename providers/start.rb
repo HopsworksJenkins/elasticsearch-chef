@@ -456,5 +456,66 @@ action :run do
         }
       }
     }'
+
+    elastic_http 'elastic-install-ml-index' do
+    action :put
+    url "#{new_resource.elastic_url}/#{node['elastic']['epipe']['ml_index']}"
+    user new_resource.user
+    password new_resource.password
+    only_if_exists false
+    message '
+    {
+      "mappings":{
+        "dynamic":"strict",
+        "properties":{
+          "doc_type":{
+            "type":"keyword"
+          },
+          "project_i_id":{
+            "type":"long"
+          },
+          "dataset_i_id":{
+            "type":"long"
+          },
+          "parent_i_id":{
+            "type":"long"
+          },
+          "inode_id":{
+            "type":"long"
+          },
+          "inode_name":{
+            "type":"text"
+          },
+          "project_name":{
+            "type":"text"
+          },
+          "user_id":{
+            "type":"integer"
+          },
+          "app_id":{
+            "type":"keyword"
+          },
+          "ml_type":{
+            "type":"keyword"
+          },
+          "ml_id":{
+            "type":"keyword"
+          },
+          "partition_id":{
+            "type":"integer"
+          },
+          "create_timestamp":{
+            "type":"long"
+          },
+          "r_create_timestamp":{
+            "type":"keyword"
+          },
+          "xattr":{
+            "type":"nested",
+            "dynamic":true
+          }
+        }
+      }
+    }'
   end
 end

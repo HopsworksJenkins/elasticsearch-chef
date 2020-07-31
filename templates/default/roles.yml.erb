@@ -145,6 +145,7 @@ epipe_hopsworks:
       - "<%=node['elastic']['epipe']['search_index']%>"
       - "<%=node['elastic']['epipe']['app_provenance_index'] %>"
       - "<%=node['elastic']['epipe']['featurestore_index'] %>"
+      - "<%=node['elastic']['epipe']['ml_index'] %>"
       allowed_actions:
         - crud
     - index_patterns:

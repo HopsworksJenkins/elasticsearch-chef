@@ -120,3 +120,4 @@ default['elastic']['epipe']['search_index']                                     
 default['elastic']['epipe']['app_provenance_index']                                 = "app_prov"
 default['elastic']['epipe']['file_provenance_index_pattern']                        = "*__file_prov"
 default['elastic']['epipe']['featurestore_index']                                   = "featurestore"
+default['elastic']['epipe']['ml_index']                                   			= "ml"
